@@ -13,6 +13,7 @@
     "@astrojs/check": "^0.4.1",
     "@devmobiliza/videojs-vimeo": "^0.6.0",
     "astro": "^4.3.0",
+    "astro-relative-links": "^0.4.2",
     "typescript": "^5.3.3",
     "video.js": "^8.10.0"
   }
