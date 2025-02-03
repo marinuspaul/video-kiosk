@@ -16,5 +16,8 @@
     "astro-relative-links": "^0.4.2",
     "typescript": "^5.3.3",
     "video.js": "^8.10.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-basic-ssl": "^1.2.0"
   }
 }
