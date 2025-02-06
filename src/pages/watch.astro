@@ -34,6 +34,7 @@ const playerInfo = await getEntry("ui", "player-ui");
   import videojs from "video.js";
   import "video.js/dist/video-js.css";
   console.log("hi");
+  let player;
 
   const file = localStorage.getItem("file");
   const title = localStorage.getItem("title");
@@ -52,7 +53,7 @@ const playerInfo = await getEntry("ui", "player-ui");
 
   function initPlayer() {
     videojs.options.autoplay = true;
-    let player = videojs("film-player", {
+    player = videojs("film-player", {
       controls: true,
       autoplay: true,
       enableSmoothSeeking: true,
@@ -71,6 +72,19 @@ const playerInfo = await getEntry("ui", "player-ui");
       // Show Overlay when user becomes active
       infoOverlay.style.display = "block";
     });
+    player.on("ended", setSleepTimeout);
+  }
+
+  function setSleepTimeout() {
+    console.log("Setting sleep timeout");
+    setTimeout(function () {
+      goBackToMenu();
+    }, 5000);
+  }
+
+  function goBackToMenu() {
+    console.log("Going back to menu");
+    window.location.href = "../index.html";
   }
 </script>
 
