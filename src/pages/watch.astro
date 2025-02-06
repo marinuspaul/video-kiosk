@@ -1,7 +1,7 @@
 ---
 import Default from "../layouts/Default.astro";
 import "../styles/global.css";
-import { getCollection, getEntry } from "astro:content";
+import { getEntry } from "astro:content";
 
 // const { film } = Astro.params;
 const filmInfo = Astro.props;
@@ -11,12 +11,11 @@ const playerInfo = await getEntry("ui", "player-ui");
 // console.log(Astro.params);
 ---
 
-<Default title={filmInfo.title}>
+<Default title="Video Kiosk">
   <main>
     <div class="content-container">
       <div class="content">
         <video-js id="film-player" class="film">
-          <!-- <source src={`/films/${film}.mov`} type="video/mp4" /> -->
           <source id="source" type="video/mp4" />
         </video-js>
 
@@ -25,8 +24,8 @@ const playerInfo = await getEntry("ui", "player-ui");
             >←{" " + playerInfo.data.backButtonText}</a
           >
           <div class="title-section">
-            <h1 class="film-title">{filmInfo.title}</h1>
-            <h3 class="author">by {filmInfo.author}</h3>
+            <h1 class="film-title"></h1>
+            <h3 class="author"></h3>
           </div>
         </div>
       </div>
@@ -34,21 +33,27 @@ const playerInfo = await getEntry("ui", "player-ui");
   </main>
 </Default>
 
+<script is:inline></script>
+
 <script>
-  import { init } from "astro/virtual-modules/prefetch.js";
   import videojs from "video.js";
   import "video.js/dist/video-js.css";
+  console.log("hi");
 
-  const sourceObject = document.querySelector("#source");
-  fetch("/data.json")
-    .then((response) => response.json())
-    .then((data) => {
-      data.forEach((film) => {
-        console.log(film);
-      });
-      sourceObject.src = `../../public/films/${data[0].name}_${data[0].title}.mp4`;
-      initPlayer();
-    });
+  const file = localStorage.getItem("file");
+  const title = localStorage.getItem("title");
+  const author = localStorage.getItem("author");
+  const sourceObject = document.querySelector("#source") as HTMLSourceElement;
+  const titleObject = document.querySelector(
+    ".film-title"
+  ) as HTMLSourceElement;
+  const authorObject = document.querySelector(".author") as HTMLSourceElement;
+
+  console.log(file);
+  sourceObject.src = `../films/${file}.mp4`; // BUILD
+  titleObject.innerText = title;
+  authorObject.innerText = author;
+  initPlayer();
 
   function initPlayer() {
     videojs.options.autoplay = true;
@@ -168,32 +173,6 @@ const playerInfo = await getEntry("ui", "player-ui");
     }
   }
 </style>
-
-<!-- <script>
-  import videojs from "video.js";
-  import "video.js/dist/video-js.css";
-
-  videojs.options.autoplay = true;
-  let player = videojs("film-player", {
-    controls: true,
-    autoplay: true,
-    enableSmoothSeeking: true,
-    liveui: true,
-    preload: "auto",
-    inactivityTimeout: 1000,
-  });
-
-  const infoOverlay = document.getElementById("info-overlay");
-  player.on("userinactive", function () {
-    // Remove Overlay when user becomes inactive
-    if (!player.paused()) infoOverlay.style.display = "none";
-  });
-
-  player.on("useractive", function () {
-    // Show Overlay when user becomes active
-    infoOverlay.style.display = "block";
-  });
-</script> -->
 
 <style is:global>
   .vjs-mute-control,

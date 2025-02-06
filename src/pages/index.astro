@@ -31,24 +31,49 @@ const menuInfo = await getEntry("ui", "menu-ui");
     </div>
     {
       parsedContent.map((section) => (
-        <div class="section-section">
+        <div class="film-section">
           <div class="section-head">
             <h2 class="section-title">{section.data.title}</h2>
             <h3 class="subtitle">{section.data.subtitle}</h3>
           </div>
           <div class="film-grid">
-            {section.films.map((film) => (
-              <FilmCover
-                title={film.title}
-                filmID={film.filmID}
-                author={film.author}
-              />
-            ))}
+            <a class="film-poster" href={`/watch/index.html`} />
           </div>
         </div>
       ))
     }
   </main>
+  <script type="text/javascript" src="./data.js"></script>
+
+  <script>
+    const posterTemplate = document.querySelector(
+      ".film-poster"
+    ) as HTMLSourceElement;
+    console.log(posterTemplate);
+    const sectionElement = document.querySelector(
+      ".film-section"
+    ) as HTMLSourceElement;
+
+    data.forEach((film) => {
+      console.log(film);
+      const posterElement = posterTemplate.cloneNode() as HTMLElement;
+      // posterElement.style.backgroundImage = `url(../../public/posters/${film.file}.jpg)`; // DEV
+      posterElement.style.backgroundImage = `url(./posters/${film.file}.jpg)`; // BUILD
+      posterElement.setAttribute("data-file", film.file);
+      posterElement.setAttribute("data-title", film.title);
+      posterElement.setAttribute("data-author", film.author);
+      posterElement.onmousedown = (event) => {
+        localStorage.setItem("file", posterElement.getAttribute("data-file"));
+        localStorage.setItem("title", posterElement.getAttribute("data-title"));
+        localStorage.setItem(
+          "author",
+          posterElement.getAttribute("data-author")
+        );
+      };
+      sectionElement.querySelector(".film-grid").appendChild(posterElement);
+    });
+    posterTemplate.remove();
+  </script>
 
   <style>
     main {
@@ -98,13 +123,30 @@ const menuInfo = await getEntry("ui", "menu-ui");
       letter-spacing: 0.1em;
     }
 
-    .section-section {
+    .film-section {
       width: 100%;
     }
 
     .main-title {
       font-size: 5rem;
       margin-top: -1rem;
+    }
+
+    .film-poster {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1/ 1.4;
+      background-color: grey;
+      background-size: cover;
+      background-position: 50%;
+      place-self: center;
+      border-radius: 3px;
+      border: 1px rgba(255, 255, 255, 0.1) solid;
+      transition: all ease-out 0.2s;
+    }
+
+    .film-poster:hover {
+      transform: scale(1.05);
     }
   </style>
 </Default>
