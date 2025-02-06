@@ -22,4 +22,4 @@ pnpm-debug.log*
 
 # film data
 public/films/
-# public/posters/
+public/posters/

@@ -3,20 +3,6 @@ import Default from "../layouts/Default.astro";
 import FilmCover from "../components/FilmCover.astro";
 import { getCollection, getEntry } from "astro:content";
 
-const films = await getCollection("films");
-const parsedFilms = films.map((film) => ({
-  filmID: film.slug,
-  title: film.data.title,
-  author: film.data.author,
-  sectionID: film.data?.sectionID,
-}));
-
-const sections = await getCollection("sections");
-
-const parsedContent = sections.map((section) => ({
-  data: section.data,
-  films: parsedFilms.filter((film) => film.sectionID == section.data.id),
-}));
 // console.log(parsedContent);
 
 const menuInfo = await getEntry("ui", "menu-ui");
@@ -26,52 +12,92 @@ const menuInfo = await getEntry("ui", "menu-ui");
 <Default title={menuInfo.data.title}>
   <main>
     <div class="head">
-      <h3 class="subtitle">{menuInfo.data.subtitle}</h3>
-      <h1 class="main-title">{menuInfo.data.title}</h1>
+      <h3 class="main-subtitle subtitle">Welcome</h3>
+      <h1 class="main-title">Video Kiosk</h1>
     </div>
-    {
-      parsedContent.map((section) => (
-        <div class="film-section">
-          <div class="section-head">
-            <h2 class="section-title">{section.data.title}</h2>
-            <h3 class="subtitle">{section.data.subtitle}</h3>
-          </div>
-          <div class="film-grid">
-            <a class="film-poster" href={`/watch/index.html`} />
-          </div>
-        </div>
-      ))
-    }
+    <div class="film-section">
+      <div class="section-head">
+        <h2 class="section-title">Section Title</h2>
+        <h3 class="subtitle">Subtitle</h3>
+      </div>
+      <div class="film-grid">
+        <a class="film-poster" href={`/watch/index.html`}></a>
+      </div>
+    </div>
   </main>
-  <script type="text/javascript" src="./data.js"></script>
 
   <script>
+    const mainElement = document.querySelector("main") as HTMLSourceElement;
     const posterTemplate = document.querySelector(
       ".film-poster"
     ) as HTMLSourceElement;
-    console.log(posterTemplate);
-    const sectionElement = document.querySelector(
+    const sectionTemplate = document.querySelector(
       ".film-section"
     ) as HTMLSourceElement;
 
-    data.forEach((film) => {
-      console.log(film);
-      const posterElement = posterTemplate.cloneNode() as HTMLElement;
-      // posterElement.style.backgroundImage = `url(../../public/posters/${film.file}.jpg)`; // DEV
-      posterElement.style.backgroundImage = `url(./posters/${film.file}.jpg)`; // BUILD
-      posterElement.setAttribute("data-file", film.file);
-      posterElement.setAttribute("data-title", film.title);
-      posterElement.setAttribute("data-author", film.author);
-      posterElement.onmousedown = (event) => {
-        localStorage.setItem("file", posterElement.getAttribute("data-file"));
-        localStorage.setItem("title", posterElement.getAttribute("data-title"));
-        localStorage.setItem(
-          "author",
-          posterElement.getAttribute("data-author")
-        );
-      };
-      sectionElement.querySelector(".film-grid").appendChild(posterElement);
-    });
+    let sections = {};
+
+    let counter = 0;
+    fetch("./data.json")
+      .then((response) => response.json())
+      .then((data) => {
+        data.films.forEach((film) => {
+          const posterElement = posterTemplate.cloneNode() as HTMLElement;
+          counter++;
+          console.log(counter + " " + film.title);
+          posterElement.style.backgroundImage = `url(./posters/${film.file}.png)`;
+          posterElement.setAttribute("data-file", film.file);
+          posterElement.setAttribute("data-title", film.title);
+          posterElement.setAttribute("data-author", film.author);
+          const sectionExists = sections[film.section] != undefined;
+          if (!sectionExists) {
+            const newSectionElement = sectionTemplate.cloneNode(
+              true
+            ) as HTMLElement;
+            sections[film.section] = {
+              title: film.section,
+              subtitle: "blabla",
+              element: newSectionElement,
+            };
+            (
+              newSectionElement.querySelector(".section-title") as HTMLElement
+            ).innerText = data.sections[film.section].title;
+            (
+              newSectionElement.querySelector(".subtitle") as HTMLElement
+            ).innerText = data.sections[film.section].subtitle;
+            mainElement.appendChild(sections[film.section].element);
+          }
+          posterElement.onmousedown = (event) => {
+            localStorage.setItem(
+              "file",
+              posterElement.getAttribute("data-file")
+            );
+            localStorage.setItem(
+              "title",
+              posterElement.getAttribute("data-title")
+            );
+            localStorage.setItem(
+              "author",
+              posterElement.getAttribute("data-author")
+            );
+          };
+          const sectionElement = sections[film.section].element;
+          sectionElement.querySelector(".film-grid").appendChild(posterElement);
+        });
+
+        const mainTitleElement = document.querySelector(
+          ".main-title"
+        ) as HTMLElement;
+        const mainSubtitleElement = document.querySelector(
+          ".main-subtitle"
+        ) as HTMLElement;
+
+        mainTitleElement.innerText = data.general.title;
+        mainSubtitleElement.innerText = data.general.subtitle;
+      });
+
+    console.log(sections);
+    sectionTemplate.remove();
     posterTemplate.remove();
   </script>
 

@@ -3,12 +3,7 @@ import Default from "../layouts/Default.astro";
 import "../styles/global.css";
 import { getEntry } from "astro:content";
 
-// const { film } = Astro.params;
-const filmInfo = Astro.props;
-
 const playerInfo = await getEntry("ui", "player-ui");
-
-// console.log(Astro.params);
 ---
 
 <Default title="Video Kiosk">

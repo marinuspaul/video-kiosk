@@ -1,0 +1,268 @@
+{
+  "general": {
+    "title": "Video Kiosk",
+    "subtitle": "Bergwerk 2025-01"
+  },
+  "sections": {
+    "alterego": {
+      "title": "Alterego",
+      "subtitle": "3. Semester"
+    },
+    "movingWords": {
+      "title": "Moving Words",
+      "subtitle": "3. Semester"
+    },
+    "wiederFrei": {
+      "title": "Wieder Frei!",
+      "subtitle": "4. – 7. Semester"
+    }
+  },
+  "films": [
+    {
+      "author": "Isabella Adelt",
+      "title": "Dance of Distraction",
+      "section": "alterego",
+      "file": "alterego_adelt_dance_of_distraction"
+    },
+    {
+      "author": "Hanna Siegel",
+      "title": "Es ist nur ein Phase Hase",
+      "section": "alterego",
+      "file": "alterego_hanna_es-ist-nur-eine-phase-hase"
+    },
+    {
+      "author": "Jule Derra",
+      "title": "Gurus Murkus",
+      "section": "alterego",
+      "file": "alterego_derra_gurkus_murkus"
+    },
+    {
+      "author": "Ayce Idil Erdem",
+      "title": "Sisiphus",
+      "section": "alterego",
+      "file": "AlterEgo_Erdem_Sisiphus"
+    },
+    {
+      "author": "Anne Friedrichs",
+      "title": "The underwhelming Adventures of a Magic Stoner Girl",
+      "section": "alterego",
+      "file": "alterego_friederichs_magic-stoner-girl"
+    },
+    {
+      "author": "Sarah Frycia",
+      "title": "Schlangen Schlingen",
+      "section": "alterego",
+      "file": "alterego_frycia_schlangen_schlingen"
+    },
+    {
+      "author": "Fiona Hoffer",
+      "title": "Symbiose",
+      "section": "alterego",
+      "file": "alterego_hoffer_symbiose"
+    },
+    {
+      "author": "Moritz Musick & Julian Schmidt",
+      "title": "Character Editor",
+      "section": "alterego",
+      "file": "alterego_schmidt-musick_character-editor"
+    },
+    {
+      "author": "ThuyVy Nguyen",
+      "title": "Cleanscreen",
+      "section": "alterego",
+      "file": "alterego_nguyen_cleanscreen"
+    },
+    {
+      "author": "Florina Rall",
+      "title": "Passt Nicht",
+      "section": "alterego",
+      "file": "alterego_rall_passt-nicht"
+    },
+    {
+      "author": "Leonard Schorling",
+      "title": "Abflussfahrt",
+      "section": "alterego",
+      "file": "alterego_schorling_abflussfahrt"
+    },
+    {
+      "author": "Annalena Schubotz",
+      "title": "Heulsusi",
+      "section": "alterego",
+      "file": "alter-ego_schubotz_heulsusi"
+    },
+    {
+      "author": "Inna Schwarz",
+      "title": "Peeling Puppe",
+      "section": "alterego",
+      "file": "alterego_schwarz_peeling-puppe"
+    },
+    {
+      "author": "Max Stroh",
+      "title": "Nuns of Fury",
+      "section": "alterego",
+      "file": "alterego_stroh_nuns_of_fury"
+    },
+    {
+      "author": "Carolin Arning",
+      "title": "Rennate",
+      "section": "alterego",
+      "file": "alterego_arning_rennate"
+    },
+    {
+      "author": "Sabrina Noack",
+      "title": "Violets tale",
+      "section": "movingWords",
+      "file": "making-words-move_noack_violets-tale"
+    },
+    {
+      "author": "Anastasiia Gabidullina",
+      "title": "Ascension",
+      "section": "movingWords",
+      "file": "making-words-move_gabidullina_ascension"
+    },
+    {
+      "author": "Johannes Naumann",
+      "title": "Colors",
+      "section": "movingWords",
+      "file": "making-words-move_naumann_colors"
+    },
+    {
+      "author": "Nicole Jansen & Josefine Holmer",
+      "title": "Dein Dackel",
+      "section": "movingWords",
+      "file": "making-words-move_jansen-holmer_deindackel"
+    },
+    {
+      "author": "Hakan Keskin",
+      "title": "Blue screen of wisdom",
+      "section": "movingWords",
+      "file": "making-words-move_keskin_bluescreenofwisdom"
+    },
+    {
+      "author": "Isabel Leganyi",
+      "title": "Wiesenraute",
+      "section": "movingWords",
+      "file": "making-words-move_leganyi_wiesenraute"
+    },
+    {
+      "author": "Vadim Rau",
+      "title": "Fallen",
+      "section": "movingWords",
+      "file": "making-words-move_rau_fallen"
+    },
+    {
+      "author": "Tina Rummel",
+      "title": "Dass du brennst",
+      "section": "movingWords",
+      "file": "making-words-move_rummel_dassdubrennst"
+    },
+    {
+      "author": "Andrea Scharf",
+      "title": "Subway Märchen",
+      "section": "movingWords",
+      "file": "making-words-move_scharf_subwaymaerchen"
+    },
+    {
+      "author": "Mara Burger",
+      "title": "Körperdruck",
+      "section": "movingWords",
+      "file": "making-words-move_burger_koerperdruck"
+    },
+    {
+      "author": "Monika Hartha",
+      "title": "Die Periodenwand der Elemente",
+      "section": "movingWords",
+      "file": "making-words-move_hartha_die-periodenwand_der_elemente"
+    },
+    {
+      "author": "Emma Töpel",
+      "title": "The Great Puzzle",
+      "section": "movingWords",
+      "file": "making-words-move_toepel_thegreatpuzzle"
+    },
+    {
+      "author": "Elisabeth Schödlbauer",
+      "title": "Jugendwörter",
+      "section": "movingWords",
+      "file": "making-words-move_schoedlbauer_jugendwoerter"
+    },
+    {
+      "author": "Begaim Akmatova",
+      "title": "A thing about life",
+      "section": "movingWords",
+      "file": "making-words-move_akmatova_a-thing-about-life"
+    },
+    {
+      "author": "Anna Kremzer",
+      "title": "Absurd",
+      "section": "movingWords",
+      "file": "making-words-move_kremzer_absurd"
+    },
+    {
+      "author": "Alexandra Haas",
+      "title": "Fashion victims",
+      "section": "wiederFrei",
+      "file": "wieder-frei_haas_fashion-victims"
+    },
+    {
+      "author": "Lea Henneberger",
+      "title": "The very human channel",
+      "section": "wiederFrei",
+      "file": "wieder-frei_henneberger_the-very-human-channel"
+    },
+    {
+      "author": "Janna Ritter",
+      "title": "Fanfics",
+      "section": "wiederFrei",
+      "file": "wieder-frei_ritter_fanfics"
+    },
+    {
+      "author": "Julian Sommer",
+      "title": "Fallback",
+      "section": "wiederFrei",
+      "file": "wieder-frei_sommer_fallback"
+    },
+    {
+      "author": "Elisabeth Suchan",
+      "title": "Lost in control",
+      "section": "wiederFrei",
+      "file": "wieder-frei_suchan_lost_in_control"
+    },
+    {
+      "author": "Clara Ding & Thao-My Nguyen",
+      "title": "Wo Reis dampft und Tauben schweigen",
+      "section": "wiederFrei",
+      "file": "wieder-frei_ding_nguyen_wo_reis_dampft_und_tauben_schweigen"
+    },
+    {
+      "author": "Philipp von Ciriacy-Wantrup & Julia Wittlif",
+      "title": "Content",
+      "section": "wiederFrei",
+      "file": "fgw_bb_2024-25_wintersemester_wieder-frei_ciriacy_content"
+    },
+    {
+      "author": "Fabienne Elbert",
+      "title": "Trollfjell",
+      "section": "wiederFrei",
+      "file": "wieder-frei_elbert-fabienne_trollfjell"
+    },
+    {
+      "author": "Manuela Mitterbauer",
+      "title": "Replika",
+      "section": "wiederFrei",
+      "file": "wieder_frei_mitterbauer_manuela_replika"
+    },
+    {
+      "author": "Johannes Talla",
+      "title": "Weich",
+      "section": "wiederFrei",
+      "file": "wieder-frei_talla_weich"
+    },
+    {
+      "author": "Tabo Hartog",
+      "title": "Singularity",
+      "section": "wiederFrei",
+      "file": "wieder-frei_hartog_singularity"
+    }
+  ]
+}
